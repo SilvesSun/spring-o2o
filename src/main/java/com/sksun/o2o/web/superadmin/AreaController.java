@@ -20,8 +20,11 @@ import java.util.Map;
 @RequestMapping("/superadmin")
 public class AreaController {
     Logger logger = LoggerFactory.getLogger(AreaController.class);
-    @Autowired
-    private AreaService areaService;
+    private final AreaService areaService;
+
+    public AreaController(AreaService areaService) {
+        this.areaService = areaService;
+    }
 
     @RequestMapping(value = "/listarea", method = RequestMethod.GET)
     @ResponseBody
